@@ -6,7 +6,7 @@ class Solution {
     }
 
     private void backtrack(int index, int[] candidates, int target, 
-                           List<Integer> current, List<List<Integer>> result) {
+    List<Integer> current, List<List<Integer>> result) {
         if (target == 0) {
             result.add(new ArrayList<>(current));
             return;
@@ -15,12 +15,9 @@ class Solution {
         if (index == candidates.length || target < 0) {
             return;
         }
-
         current.add(candidates[index]);
         backtrack(index, candidates, target - candidates[index], current, result);
-        
         current.remove(current.size() - 1);
-
         backtrack(index + 1, candidates, target, current, result);
     }
 }
